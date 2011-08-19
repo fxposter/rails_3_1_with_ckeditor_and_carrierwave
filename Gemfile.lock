@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/fxposter/ckeditor.git
+  revision: dc2a09e9e91182481c2d090c668f33a34f94af83
+  specs:
+    ckeditor (3.6.1)
+      mime-types (~> 1.16)
+      orm_adapter (~> 0.0.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -36,9 +44,6 @@ GEM
     builder (3.0.0)
     carrierwave (0.5.7)
       activesupport (~> 3.0)
-    ckeditor (3.6.0)
-      mime-types (~> 1.16)
-      orm_adapter (~> 0.0.5)
     coffee-rails (3.1.0.rc.6)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0.rc1)
@@ -118,7 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   carrierwave
-  ckeditor (~> 3.6.0)
+  ckeditor!
   coffee-rails (~> 3.1.0.rc)
   jquery-rails
   mini_magick

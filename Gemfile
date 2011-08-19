@@ -7,7 +7,7 @@ gem 'rails', '3.1.0.rc6'
 
 gem 'sqlite3'
 
-gem "ckeditor", "~> 3.6.0"
+gem "ckeditor", :git => 'git://github.com/fxposter/ckeditor.git'
 gem "carrierwave"
 gem "mini_magick"
 

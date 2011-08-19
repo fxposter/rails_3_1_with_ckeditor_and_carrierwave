@@ -33,10 +33,8 @@ and enjoy your life.
 
 Add this to your gemfile
 
-  # if you need mongodb + carrierwave support you should use this line for now
-  gem "ckeditor", :git => "git://github.com/fxposter/ckeditor.git"
-  # otherwise, you can use gem from rubygems.org
-  gem "ckeditor", "~> 3.6.0"
+  # if you need carrierwave you should use this line for now
+  gem "ckeditor", :git => "git://github.com/galetahub/ckeditor.git"
   
   gem "carrierwave"
   gem "mini_magick"
