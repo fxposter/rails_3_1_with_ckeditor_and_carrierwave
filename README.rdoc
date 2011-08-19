@@ -1,0 +1,77 @@
+= Rails 3.1 and Ckeditor test app
+
+This is a test app for showing how to use ckeditor gem (https://github.com/galetahub/ckeditor) in Rails 3.1. I hope, this will help somebody :)
+
+== Notice
+
+First of all, if you really want to integrate ckeditor with Rails 3.1 asset pipeline - you should do it yourself, manually and ckeditor gem is not for you.
+For everyone else, if you are ok, that ckeditor and all it's dependencies will exist in public/javascripts directory - you can follow this simple guide.
+
+== Installation
+
+  git clone git://github.com/fxposter/rails_3_1_with_ckeditor_and_carrierwave.git
+  
+In order to boot up you should install dependencies, create database and run migrations:
+
+  bundle install
+  rake db:create
+  rake db:migrate
+  
+  rails server
+  
+Then go to
+
+  http://localhost:3000/main/index
+  
+and enjoy your life.
+
+== How to build this app from scratch
+
+  gem install rails --pre
+  rails new rails_3_1_with_ckeditor_and_carrierwave --skip-bundle
+  cd rails_3_1_with_ckeditor_and_carrierwave
+
+Add this to your gemfile
+
+  # if you need mongodb + carrierwave support you should use this line for now
+  gem "ckeditor", :git => "git://github.com/fxposter/ckeditor.git"
+  # otherwise, you can use gem from rubygems.org
+  gem "ckeditor", "~> 3.6.0"
+  
+  gem "carrierwave"
+  gem "mini_magick"
+
+Run
+
+  bundle install
+
+There is a bug in installation generator (which I'll fix eventually) for Rails 3.1 and you must create public/javascripts directory manually (cause Rails 3.1 doesn't need it by default):
+  
+  mkdir public/javascripts
+
+Run generators:
+
+  rails generate ckeditor:install
+  rails generate ckeditor:models --orm=active_record --backend=carrierwave
+
+Migrate database (if you're using ActiveRecord):
+
+  rake db:migrate
+
+Generate your controller and view:
+  
+  rails generate controller main index
+
+
+And paste this lines to app/views/main/index.html.erb:
+
+  <%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+  <%= cktext_area_tag("test_area", "Ckeditor is the best") %>
+
+Start the server 
+
+  rails server
+
+and visit
+
+  http://localhost:3000/main/index
